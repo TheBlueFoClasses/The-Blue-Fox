@@ -1,0 +1,6 @@
+{
+  "name": "The Blue Fox Art Studio",
+  "description": "A traveling art studio hosting creative watercolor, acrylic, and sketching classes for beginners and art lovers alike.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

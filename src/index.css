@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", "Arial", "Nimbus Sans L", sans-serif;
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  /* Artistic Flair Color Theme Mappings for Tailwind */
+  --color-primary-50: #E9F1F2;
+  --color-primary-100: #D3E4E6;
+  --color-primary-200: #A8C9CD;
+  --color-primary-500: #3E6672;
+  --color-primary-600: #2D4A53;
+  --color-primary-700: #22383F;
+  --color-primary-950: #121F23;
+
+  --color-blue-50: #E9F1F2;
+  --color-blue-100: #D3E4E6;
+  --color-blue-200: #A8C9CD;
+  --color-blue-300: #7DAEB4;
+  --color-blue-400: #548E98;
+  --color-blue-500: #3D6A75;
+  --color-blue-600: #2D4A53;
+  --color-blue-700: #22383F;
+  --color-blue-800: #18282D;
+  --color-blue-900: #111D20;
+  --color-blue-950: #080E10;
+
+  --color-amber-50: #FAF4EE;
+  --color-amber-100: #F3E5D8;
+  --color-amber-200: #E6CBB1;
+  --color-amber-300: #D7AB86;
+  --color-amber-400: #C98A5B;
+  --color-amber-500: #C87941;
+  --color-amber-600: #B25F29;
+  --color-amber-700: #93461B;
+  --color-amber-800: #743110;
+  --color-amber-900: #592209;
+  --color-amber-950: #331002;
+
+  --color-slate-50: #FDFCF9;
+  --color-slate-100: #F5F3EC;
+  --color-slate-200: #EBE6D7;
+  --color-slate-300: #DCD4BF;
+  --color-slate-400: #CBBFA3;
+  --color-slate-500: #AFA182;
+  --color-slate-600: #918263;
+  --color-slate-700: #74674C;
+  --color-slate-800: #574D38;
+  --color-slate-900: #3B3425;
+  --color-slate-950: #1D1A12;
+}
+
+:root {
+  /* Artistic Flair Color Palette stored as CSS variables */
+  --primary: #2D4A53;      /* Deep Slate/Teal */
+  --secondary: #E9F1F2;    /* Soft Ice/Teal */
+  --accent: #C87941;       /* Terracotta Accent */
+  --background: #FDFCF9;   /* Warm Paper White */
+  --surface: #FFFFFF;      /* Pure White Surface */
+  --text: #334155;         /* Elegant Slate Blue/Charcoal Text */
+  --text-muted: #94A3B8;   /* Cool muted Slate Gray */
+  --border: #EBE6D7;       /* Soft Sandstone Border */
+}
+
+/* Custom Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text);
+}
+
+body {
+  background-color: var(--background);
+}
+
+/* Smooth custom scrollbars for neat look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F3EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBBFA3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #918263;
+}
+
+/* Star styling helper */
+.star-filled {
+  color: #C87941;
+}
+
+/* Clean accessible focus styling */
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #2D4A53;
+  outline-offset: 2px;
+}
+
+/* Extra Artistic Flair decorations */
+.artistic-border {
+  border-color: #EBE6D7;
+}
+
+.artistic-shadow {
+  box-shadow: 0 4px 20px -2px rgba(45, 74, 83, 0.08);
+}
