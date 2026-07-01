@@ -1,4 +1,28 @@
-import { ArtClass, Instructor, Testimonial } from './types';
+export interface Instructor {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  specialty: string;
+  avatar: string;
+}
+
+export interface ArtClass {
+  id: string;
+  title: string;
+  description: string;
+  medium: 'Watercolor' | 'Acrylic' | 'Sketching';
+  date: string; // YYYY-MM-DD
+  time: string;
+  duration: string;
+  instructor: string;
+  location: string;
+  locationDetails: string;
+  price: number;
+  maxSeats: number;
+  filledSeats: number;
+  image: string;
+}
 
 export const INSTRUCTORS: Instructor[] = [
   {
@@ -123,72 +147,5 @@ export const ART_CLASSES: ArtClass[] = [
     maxSeats: 10,
     filledSeats: 3,
     image: '/src/assets/images/pencil_sketch_1782863132031.jpg'
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 'test-1',
-    name: 'Helena Carter',
-    age: 42,
-    role: 'Watercolor Hobbyist',
-    comment: 'I hadn’t touched a paintbrush since high school. Evelyn was so welcoming and explained everything so simply! The setting at the greenhouse was absolutely magical. I walked away with a forest painting I am proud to hang on my wall.',
-    rating: 5,
-    classTaken: 'Dreamy Forest Paths',
-    artworkImage: '/src/assets/images/watercolor_forest_1782863115766.jpg',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120'
-  },
-  {
-    id: 'test-2',
-    name: 'David Miller',
-    age: 55,
-    role: 'Acrylic Beginner',
-    comment: 'Marcus broke down the mountain sunset landscape into manageable layers. The palette knife technique was a blast and very satisfying. Having a glass of wine with nice people in their 30s-50s made it an incredibly pleasant, zero-pressure evening.',
-    rating: 5,
-    classTaken: 'Vibrant Acrylic Mountain Sunset',
-    artworkImage: '/src/assets/images/acrylic_sunset_1782863123550.jpg',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120'
-  },
-  {
-    id: 'test-3',
-    name: 'Clara Thompson',
-    age: 38,
-    role: 'Ink Illustrator',
-    comment: 'The perspective class with Sarah was a game changer. I used to think I couldn’t draw straight lines, but she taught us to see the shapes. Sketching with coffee at Urban Grind was cozy, relaxing, and highly informative.',
-    rating: 5,
-    classTaken: 'Cozy Street Vignettes',
-    artworkImage: '/src/assets/images/pencil_sketch_1782863132031.jpg',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120'
-  }
-];
-
-export const GENERAL_GALLERY = [
-  {
-    id: 'g-1',
-    title: 'Watercolors at Willow Cafe',
-    description: 'Our students hard at work inside the conservatory greenhouse.',
-    image: '/src/assets/images/art_class_scene_1782863103858.jpg',
-    category: 'Class Photo'
-  },
-  {
-    id: 'g-2',
-    title: 'Watercolors Forest Exhibit',
-    description: 'Evelyn’s original sample path layout for our watercolor forest class.',
-    image: '/src/assets/images/watercolor_forest_1782863115766.jpg',
-    category: 'Watercolor'
-  },
-  {
-    id: 'g-3',
-    title: 'Sunset over Vines acrylics',
-    description: 'Sunset landscape sample, highlighting textured knife techniques.',
-    image: '/src/assets/images/acrylic_sunset_1782863123550.jpg',
-    category: 'Acrylic'
-  },
-  {
-    id: 'g-4',
-    title: 'Parisian Bistro in Graphite',
-    description: 'Sarah’s ink wash sketch demo illustrating atmospheric perspectives.',
-    image: '/src/assets/images/pencil_sketch_1782863132031.jpg',
-    category: 'Sketching'
   }
 ];

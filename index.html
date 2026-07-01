@@ -3,11 +3,989 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>Blue Fox Art Studio — Creative Classes on the Move</title>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="bg-[#FDFCF9] text-[#334155] antialiased">
+    
+    <!-- Top Promotional Banner -->
+    <div class="bg-[#2D4A53] text-[#E9F1F2] py-2 px-4 text-center text-xs font-medium tracking-wide">
+      ✨ Join Evelyn, Marcus & Sarah for July 2026 Creative Sessions! Book your seat now.
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-[#FDFCF9]/95 backdrop-blur-md border-b border-[#EBE6D7] transition-all duration-200">
+      <div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <img src="/src/assets/images/blue_fox_logo_1782863083223.jpg" alt="Blue Fox Mascot Logo" class="w-10 h-10 rounded-full object-cover border border-[#EBE6D7] group-hover:scale-105 transition-transform" referrerPolicy="no-referrer" />
+          <div>
+            <span class="font-serif text-xl font-bold text-[#2D4A53] tracking-tight block leading-none">Blue Fox</span>
+            <span class="text-[10px] uppercase font-mono tracking-widest text-[#C87941] block mt-0.5">Art Studio</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#home" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">Home</a>
+          <a href="#about" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">About</a>
+          <a href="#programs" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">Programs</a>
+          <a href="#schedule" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">Classes</a>
+          <a href="#work" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">Student Work</a>
+          <a href="#contact" class="text-sm font-medium text-[#2D4A53] hover:text-[#C87941] transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="flex items-center gap-3">
+          <!-- Bookings Trigger Button -->
+          <button id="bookings-drawer-trigger" class="relative flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#EBE6D7] hover:bg-[#E9F1F2] transition-colors text-xs font-medium text-[#2D4A53]" aria-label="View My Bookings">
+            <!-- Ticket Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+            <span>My Bookings</span>
+            <span id="bookings-badge" class="hidden absolute -top-1.5 -right-1 bg-[#C87941] text-white text-[9px] font-bold w-4.5 h-4.5 rounded-full flex items-center justify-center animate-pulse">0</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-toggle" class="md:hidden p-1.5 rounded-md text-[#2D4A53] hover:bg-[#E9F1F2] transition-colors" aria-label="Toggle Navigation Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation Menu -->
+      <div id="mobile-dropdown" class="hidden md:hidden border-t border-[#EBE6D7] bg-[#FDFCF9] px-4 py-3 flex flex-col gap-3 transition-all duration-300">
+        <a href="#home" class="text-sm font-medium py-1.5 text-[#2D4A53] border-b border-[#EBE6D7]/30">Home</a>
+        <a href="#about" class="text-sm font-medium py-1.5 text-[#2D4A53] border-b border-[#EBE6D7]/30">About Us</a>
+        <a href="#programs" class="text-sm font-medium py-1.5 text-[#2D4A53] border-b border-[#EBE6D7]/30">Programs</a>
+        <a href="#schedule" class="text-sm font-medium py-1.5 text-[#2D4A53] border-b border-[#EBE6D7]/30">Art Classes</a>
+        <a href="#work" class="text-sm font-medium py-1.5 text-[#2D4A53] border-b border-[#EBE6D7]/30">Student Showcase</a>
+        <a href="#contact" class="text-sm font-medium py-1.5 text-[#2D4A53]">Contact & Directions</a>
+      </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main>
+      
+      <!-- HERO SECTION -->
+      <section id="home" class="relative overflow-hidden py-16 md:py-24 border-b border-[#EBE6D7]">
+        <!-- Subtle artistic backdrop -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#2D4A53_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-[1200px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Text Area (Column Span 7) -->
+          <div class="lg:col-span-7 space-y-6">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E9F1F2] text-[#2D4A53] text-[11px] font-mono uppercase tracking-wider font-semibold">
+              🎨 Bringing Art to Your Neighborhood
+            </span>
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2D4A53] font-bold leading-[1.1] tracking-tight">
+              Ignite your creativity.<br />
+              Shape color.<br />
+              <span class="text-[#C87941] italic font-normal">Build community.</span>
+            </h1>
+            <p class="text-base sm:text-lg text-[#334155]/90 max-w-xl leading-relaxed">
+              Blue Fox Art Studio is a traveling workspace bringing inspiring art workshops to local cafes, vine yards, and gardens across town. Master watercolors, bold acrylics, and ink illustration in beautiful, supportive settings.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="#schedule" class="px-6 py-3 rounded-md bg-[#2D4A53] text-white hover:bg-[#22383F] font-medium transition-all shadow-md hover:shadow-lg text-sm text-center">
+                Explore Classes
+              </a>
+              <a href="#programs" class="px-6 py-3 rounded-md border border-[#2D4A53] text-[#2D4A53] hover:bg-[#E9F1F2]/50 font-medium transition-all text-sm text-center">
+                Our Programs
+              </a>
+            </div>
+            <!-- Trust Proofs / Accents -->
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-[#EBE6D7] max-w-lg">
+              <div>
+                <span class="block font-serif text-2xl font-bold text-[#2D4A53]">350+</span>
+                <span class="text-xs text-[#94A3B8] font-mono uppercase tracking-wider">Students Taught</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-[#2D4A53]">3</span>
+                <span class="text-xs text-[#94A3B8] font-mono uppercase tracking-wider">Expert Mentors</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-[#2D4A53]">100%</span>
+                <span class="text-xs text-[#94A3B8] font-mono uppercase tracking-wider">Beginner Friendly</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image Frame (Column Span 5) -->
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -inset-1.5 bg-[#C87941] rounded-2xl rotate-2 opacity-10"></div>
+            <div class="absolute inset-0 bg-[#2D4A53] rounded-2xl -rotate-1 opacity-5"></div>
+            <div class="relative bg-white p-3 rounded-2xl shadow-xl border border-[#EBE6D7]">
+              <img src="/src/assets/images/hero_traveling_studio_1782863093535.jpg" alt="Active outdoor art class workshop" class="w-full h-[450px] object-cover rounded-xl" referrerPolicy="no-referrer" />
+              <!-- Small Floating Label -->
+              <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg border border-[#EBE6D7] shadow-lg flex items-center justify-between">
+                <div>
+                  <span class="block text-xs font-bold text-[#2D4A53]">Live Plein Air Sessions</span>
+                  <span class="block text-[10px] text-[#94A3B8] font-mono">Hosted at Harvest Ridge Vineyards</span>
+                </div>
+                <span class="text-xs bg-[#C87941] text-white font-mono px-2 py-1 rounded">July '26</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ART STUDY PROGRAMS -->
+      <section id="programs" class="py-16 bg-white border-b border-[#EBE6D7]">
+        <div class="max-w-[1200px] mx-auto px-4">
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#C87941]">Medium Core Curriculums</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#2D4A53]">Our Specialized Art Programs</h2>
+            <div class="w-12 h-0.5 bg-[#C87941] mx-auto mt-2"></div>
+            <p class="text-sm text-[#334155]/80">
+              Each medium is instructed by a dedicated master. Whether you prefer the organic flows of watercolor, the vibrant weight of acrylics, or the precise structure of sketches.
+            </p>
+          </div>
+
+          <!-- Program Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Program 1: Watercolor -->
+            <div class="group bg-[#FDFCF9] rounded-xl border border-[#EBE6D7] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+              <div class="relative h-48 overflow-hidden">
+                <img src="/src/assets/images/watercolor_forest_1782863115766.jpg" alt="Delicate green watercolor forest canvas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#2D4A53] text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#EBE6D7]">
+                  Watercolor
+                </div>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div class="space-y-3">
+                  <h3 class="font-serif text-xl font-bold text-[#2D4A53] group-hover:text-[#C87941] transition-colors">Ethereal Watercolors</h3>
+                  <p class="text-xs text-[#334155]/85 leading-relaxed">
+                    Embrace fluidity, light transparency, and wet-on-wet blend techniques. Perfect for landscape studies, dream forests, and botanical details.
+                  </p>
+                  <!-- Specs Grid -->
+                  <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#EBE6D7]/60 text-[10px] font-mono text-[#94A3B8]">
+                    <div>
+                      <span class="block text-slate-400">INSTRUCTOR</span>
+                      <span class="font-semibold text-[#2D4A53]">Evelyn Vance</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">AGE</span>
+                      <span class="font-semibold text-[#2D4A53]">All Ages</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">LEVEL</span>
+                      <span class="font-semibold text-[#2D4A53]">Novice-Int</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4 mt-auto">
+                  <a href="#schedule" data-medium-filter="Watercolor" class="program-shortcut flex items-center gap-1 text-xs font-semibold text-[#C87941] hover:text-[#C87941]/80 transition-colors">
+                    View watercolor schedule →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 2: Acrylic -->
+            <div class="group bg-[#FDFCF9] rounded-xl border border-[#EBE6D7] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+              <div class="relative h-48 overflow-hidden">
+                <img src="/src/assets/images/acrylic_sunset_1782863123550.jpg" alt="Rich textured acrylic mountain canvas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#2D4A53] text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#EBE6D7]">
+                  Acrylics
+                </div>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div class="space-y-3">
+                  <h3 class="font-serif text-xl font-bold text-[#2D4A53] group-hover:text-[#C87941] transition-colors">Bold Textured Acrylics</h3>
+                  <p class="text-xs text-[#334155]/85 leading-relaxed">
+                    Learn vibrant color blockings, structural brush strokes, and heavy palette-knife techniques. Perfect for sunsets, textured seas, and bold fields.
+                  </p>
+                  <!-- Specs Grid -->
+                  <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#EBE6D7]/60 text-[10px] font-mono text-[#94A3B8]">
+                    <div>
+                      <span class="block text-slate-400">INSTRUCTOR</span>
+                      <span class="font-semibold text-[#2D4A53]">Marcus Brody</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">AGE</span>
+                      <span class="font-semibold text-[#2D4A53]">16+</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">LEVEL</span>
+                      <span class="font-semibold text-[#2D4A53]">All Levels</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4 mt-auto">
+                  <a href="#schedule" data-medium-filter="Acrylic" class="program-shortcut flex items-center gap-1 text-xs font-semibold text-[#C87941] hover:text-[#C87941]/80 transition-colors">
+                    View acrylic schedule →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Program 3: Sketching -->
+            <div class="group bg-[#FDFCF9] rounded-xl border border-[#EBE6D7] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full">
+              <div class="relative h-48 overflow-hidden">
+                <img src="/src/assets/images/pencil_sketch_1782863132031.jpg" alt="Delicate pen and ink street sketch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#2D4A53] text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#EBE6D7]">
+                  Sketching
+                </div>
+              </div>
+              <div class="p-6 flex-grow flex flex-col justify-between">
+                <div class="space-y-3">
+                  <h3 class="font-serif text-xl font-bold text-[#2D4A53] group-hover:text-[#C87941] transition-colors">Perspective & Ink Wash</h3>
+                  <p class="text-xs text-[#334155]/85 leading-relaxed">
+                    Build solid layout confidence. Explore single-point perspective, line shading weight, and classic diluted ink washes for elegant urban scenes.
+                  </p>
+                  <!-- Specs Grid -->
+                  <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-[#EBE6D7]/60 text-[10px] font-mono text-[#94A3B8]">
+                    <div>
+                      <span class="block text-slate-400">INSTRUCTOR</span>
+                      <span class="font-semibold text-[#2D4A53]">Sarah Kim</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">AGE</span>
+                      <span class="font-semibold text-[#2D4A53]">All Ages</span>
+                    </div>
+                    <div>
+                      <span class="block text-slate-400">LEVEL</span>
+                      <span class="font-semibold text-[#2D4A53]">True Beginner</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="pt-4 mt-auto">
+                  <a href="#schedule" data-medium-filter="Sketching" class="program-shortcut flex items-center gap-1 text-xs font-semibold text-[#C87941] hover:text-[#C87941]/80 transition-colors">
+                    View sketching schedule →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLASSES CALENDAR & ENROLLMENT (CORE COMPONENT) -->
+      <section id="schedule" class="py-16 bg-[#FDFCF9] border-b border-[#EBE6D7]">
+        <div class="max-w-[1200px] mx-auto px-4">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-4">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-[#C87941]">Interactive Schedule</span>
+              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#2D4A53]">Find a Class in July 2026</h2>
+              <p class="text-xs text-[#334155]/85 max-w-lg">
+                Choose an art medium and location, or click direct dates on the calendar grid to see what classes are running that day.
+              </p>
+            </div>
+            
+            <!-- Filters Panel -->
+            <div class="flex flex-wrap items-center gap-3">
+              <!-- Medium Filter -->
+              <div class="flex flex-col gap-1">
+                <label for="filter-medium" class="text-[9px] uppercase font-mono tracking-wider text-[#94A3B8]">Art Medium</label>
+                <select id="filter-medium" class="px-3 py-1.5 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53]">
+                  <option value="All">All Mediums</option>
+                  <option value="Watercolor">Watercolor</option>
+                  <option value="Acrylic">Acrylic</option>
+                  <option value="Sketching">Sketching</option>
+                </select>
+              </div>
+
+              <!-- Location Filter -->
+              <div class="flex flex-col gap-1">
+                <label for="filter-location" class="text-[9px] uppercase font-mono tracking-wider text-[#94A3B8]">Venue Venue</label>
+                <select id="filter-location" class="px-3 py-1.5 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53]">
+                  <option value="All">All Locations</option>
+                  <option value="The Willow Cafe Greenhouse">Willow Cafe Greenhouse</option>
+                  <option value="Harvest Ridge Vineyards">Harvest Ridge Vineyards</option>
+                  <option value="Urban Grind Roastery">Urban Grind Roastery</option>
+                  <option value="The Bloom Garden Emporium">The Bloom Garden Emporium</option>
+                </select>
+              </div>
+
+              <!-- Reset Button -->
+              <button id="filter-reset" class="mt-4 px-3 py-1.5 bg-[#E9F1F2] hover:bg-[#D3E4E6] text-[#2D4A53] text-xs font-medium rounded-md transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Dual Section Grid: Left is Calendar, Right is Class Cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Left Side: Calendar Widget (Grid Span 5) -->
+            <div class="lg:col-span-5 bg-white p-5 rounded-xl border border-[#EBE6D7] shadow-sm space-y-4">
+              <div class="flex items-center justify-between border-b border-[#EBE6D7] pb-3">
+                <span class="font-serif text-lg font-bold text-[#2D4A53]">July 2026</span>
+                <span class="text-xs font-mono text-[#C87941] uppercase tracking-widest font-semibold">Active Month</span>
+              </div>
+              
+              <!-- Week Days Headers -->
+              <div class="grid grid-cols-7 text-center text-[10px] font-mono font-bold text-[#94A3B8]">
+                <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+              </div>
+
+              <!-- Calendar Grid (Populated dynamically) -->
+              <div id="calendar-grid" class="grid grid-cols-7 gap-1 text-center">
+                <!-- Days will be dynamically written here -->
+              </div>
+
+              <div class="flex items-center gap-4 text-[10px] font-mono text-[#334155]/70 pt-2 border-t border-[#EBE6D7]/60">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#E9F1F2] border border-[#2D4A53]/30 inline-block"></span>
+                  <span>Class Scheduled</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded bg-[#2D4A53] inline-block"></span>
+                  <span>Active Filter</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Dynamic Classes Feed (Grid Span 7) -->
+            <div class="lg:col-span-7 space-y-4">
+              <!-- Active Filter Banner Indicator -->
+              <div id="active-day-banner" class="hidden bg-[#E9F1F2] border border-[#2D4A53]/15 text-[#2D4A53] px-4 py-2 rounded-lg text-xs flex items-center justify-between">
+                <span>Showing classes for <strong id="active-day-value">July 11, 2026</strong></span>
+                <button id="clear-day-filter" class="font-mono text-[10px] uppercase font-bold text-[#C87941] hover:underline">Show All Dates</button>
+              </div>
+
+              <!-- Class Feed Container -->
+              <div id="class-feed-list" class="space-y-4">
+                <!-- Class cards written dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO / STUDENT WORK EXHIBIT -->
+      <section id="work" class="py-16 bg-white border-b border-[#EBE6D7]">
+        <div class="max-w-[1200px] mx-auto px-4">
+          <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#C87941]">Community Showcase</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#2D4A53]">Student Masterpieces & Gallery</h2>
+            <div class="w-12 h-0.5 bg-[#C87941] mx-auto mt-2"></div>
+            <p class="text-sm text-[#334155]/85">
+              Behold actual masterpieces created by absolute beginners in their very first 2.5-hour workshop session. Spark your own inspiration!
+            </p>
+          </div>
+
+          <!-- Gallery Bento Layout -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="group relative overflow-hidden rounded-xl border border-[#EBE6D7] bg-[#FDFCF9] shadow-sm">
+              <div class="relative h-64 overflow-hidden">
+                <img src="/src/assets/images/watercolor_forest_1782863115766.jpg" alt="Student forest watercolor painting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute inset-0 bg-[#2D4A53]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#E9F1F2]">Watercolors Paths Class</span>
+                  <h4 class="font-serif text-base font-bold text-white leading-tight">Dreamy Whispering Canopy</h4>
+                  <p class="text-[10px] text-[#E9F1F2]/80 mt-1">Painted by Helena Carter, Age 42</p>
+                </div>
+              </div>
+              <div class="p-3.5 flex items-center justify-between bg-white text-xs border-t border-[#EBE6D7]">
+                <span class="font-medium text-[#2D4A53]">Dreamy Forest Wash</span>
+                <button class="like-button flex items-center gap-1.5 font-mono text-slate-400 hover:text-red-500 transition-colors" data-liked-id="gallery-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <span class="like-count">24</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="group relative overflow-hidden rounded-xl border border-[#EBE6D7] bg-[#FDFCF9] shadow-sm">
+              <div class="relative h-64 overflow-hidden">
+                <img src="/src/assets/images/acrylic_sunset_1782863123550.jpg" alt="Student acrylic mountain sunset painting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute inset-0 bg-[#2D4A53]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#E9F1F2]">Mountain Sunset Acrylics</span>
+                  <h4 class="font-serif text-base font-bold text-white leading-tight">Vibrant Peaks at Twilight</h4>
+                  <p class="text-[10px] text-[#E9F1F2]/80 mt-1">Painted by David Miller, Age 55</p>
+                </div>
+              </div>
+              <div class="p-3.5 flex items-center justify-between bg-white text-xs border-t border-[#EBE6D7]">
+                <span class="font-medium text-[#2D4A53]">Vibrant Sunset knife</span>
+                <button class="like-button flex items-center gap-1.5 font-mono text-slate-400 hover:text-red-500 transition-colors" data-liked-id="gallery-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <span class="like-count">48</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="group relative overflow-hidden rounded-xl border border-[#EBE6D7] bg-[#FDFCF9] shadow-sm">
+              <div class="relative h-64 overflow-hidden">
+                <img src="/src/assets/images/pencil_sketch_1782863132031.jpg" alt="Student street sketch illustration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute inset-0 bg-[#2D4A53]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#E9F1F2]">Cozy Vignettes Sketching</span>
+                  <h4 class="font-serif text-base font-bold text-white leading-tight">Quiet Paris Afternoon</h4>
+                  <p class="text-[10px] text-[#E9F1F2]/80 mt-1">Painted by Clara Thompson, Age 38</p>
+                </div>
+              </div>
+              <div class="p-3.5 flex items-center justify-between bg-white text-xs border-t border-[#EBE6D7]">
+                <span class="font-medium text-[#2D4A53]">Bistro Street Perspective</span>
+                <button class="like-button flex items-center gap-1.5 font-mono text-slate-400 hover:text-red-500 transition-colors" data-liked-id="gallery-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <span class="like-count">31</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="group relative overflow-hidden rounded-xl border border-[#EBE6D7] bg-[#FDFCF9] shadow-sm">
+              <div class="relative h-64 overflow-hidden">
+                <img src="/src/assets/images/art_class_scene_1782863103858.jpg" alt="Student art class landscape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
+                <div class="absolute inset-0 bg-[#2D4A53]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#E9F1F2]">Outdoor Plein Air Series</span>
+                  <h4 class="font-serif text-base font-bold text-white leading-tight">Shared Easels & Canvases</h4>
+                  <p class="text-[10px] text-[#E9F1F2]/80 mt-1">Captured Live during Group workshop</p>
+                </div>
+              </div>
+              <div class="p-3.5 flex items-center justify-between bg-white text-xs border-t border-[#EBE6D7]">
+                <span class="font-medium text-[#2D4A53]">Live Greenhouse Class</span>
+                <button class="like-button flex items-center gap-1.5 font-mono text-slate-400 hover:text-red-500 transition-colors" data-liked-id="gallery-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="heart-icon"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  <span class="like-count">56</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonials Slide Frame -->
+          <div class="mt-16 bg-[#FDFCF9] rounded-2xl border border-[#EBE6D7] p-8 md:p-12">
+            <h3 class="font-serif text-2xl font-bold text-[#2D4A53] text-center mb-10">What Our Painters Say</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Review 1 -->
+              <div class="bg-white p-6 rounded-xl border border-[#EBE6D7] shadow-sm flex flex-col justify-between">
+                <div class="space-y-4">
+                  <!-- Stars -->
+                  <div class="flex text-[#C87941] gap-0.5">
+                    ★ ★ ★ ★ ★
+                  </div>
+                  <p class="text-xs text-[#334155]/90 italic leading-relaxed">
+                    "I hadn't touched a paintbrush since high school. Evelyn was so welcoming and explained everything so simply! The setting at the greenhouse was absolutely magical. I walked away with a forest painting I am proud to hang on my wall."
+                  </p>
+                </div>
+                <div class="flex items-center gap-3 pt-6 mt-6 border-t border-[#EBE6D7]/60">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120" alt="Helena Carter Avatar" class="w-9 h-9 rounded-full object-cover" />
+                  <div>
+                    <span class="block text-xs font-bold text-[#2D4A53]">Helena Carter</span>
+                    <span class="block text-[10px] font-mono text-[#94A3B8]">Watercolor Hobbyist, Age 42</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 2 -->
+              <div class="bg-white p-6 rounded-xl border border-[#EBE6D7] shadow-sm flex flex-col justify-between">
+                <div class="space-y-4">
+                  <!-- Stars -->
+                  <div class="flex text-[#C87941] gap-0.5">
+                    ★ ★ ★ ★ ★
+                  </div>
+                  <p class="text-xs text-[#334155]/90 italic leading-relaxed">
+                    "Marcus broke down the mountain sunset landscape into manageable layers. The palette knife technique was a blast and very satisfying. Having a glass of wine with nice people in their 30s-50s made it an incredibly pleasant, zero-pressure evening."
+                  </p>
+                </div>
+                <div class="flex items-center gap-3 pt-6 mt-6 border-t border-[#EBE6D7]/60">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120" alt="David Miller Avatar" class="w-9 h-9 rounded-full object-cover" />
+                  <div>
+                    <span class="block text-xs font-bold text-[#2D4A53]">David Miller</span>
+                    <span class="block text-[10px] font-mono text-[#94A3B8]">Acrylic Beginner, Age 55</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review 3 -->
+              <div class="bg-white p-6 rounded-xl border border-[#EBE6D7] shadow-sm flex flex-col justify-between">
+                <div class="space-y-4">
+                  <!-- Stars -->
+                  <div class="flex text-[#C87941] gap-0.5">
+                    ★ ★ ★ ★ ★
+                  </div>
+                  <p class="text-xs text-[#334155]/90 italic leading-relaxed">
+                    "The perspective class with Sarah was a game changer. I used to think I couldn’t draw straight lines, but she taught us to see the shapes. Sketching with coffee at Urban Grind was cozy, relaxing, and highly informative."
+                  </p>
+                </div>
+                <div class="flex items-center gap-3 pt-6 mt-6 border-t border-[#EBE6D7]/60">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120" alt="Clara Thompson Avatar" class="w-9 h-9 rounded-full object-cover" />
+                  <div>
+                    <span class="block text-xs font-bold text-[#2D4A53]">Clara Thompson</span>
+                    <span class="block text-[10px] font-mono text-[#94A3B8]">Ink Illustrator, Age 38</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT & DIRECTORS STORY -->
+      <section id="about" class="py-16 bg-[#FDFCF9] border-b border-[#EBE6D7]">
+        <div class="max-w-[1200px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Story Left (Grid Span 6) -->
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#C87941]">Behind the Brush</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#2D4A53]">The Blue Fox Mission & Concept</h2>
+            <div class="w-12 h-0.5 bg-[#C87941]"></div>
+            <p class="text-xs text-[#334155]/90 leading-relaxed">
+              Founded in 2024 by three local art advocates, Blue Fox Art Studio was built on a simple premise: <strong>Art should come to the community, not hide in formal galleries.</strong>
+            </p>
+            <p class="text-xs text-[#334155]/90 leading-relaxed">
+              We pack our custom Traveling Art Van with high-grade canvases, German-milled watercolor papers, professional pigment fine-liners, and easel stands, setting up popup workshops in the town's most inspiring corners. From sunlit greenhouse gardens to aromatic coffee roasters, our settings provide the ultimate sensory environment to unchain your inner artist.
+            </p>
+            
+            <!-- Three Instructors List -->
+            <div class="space-y-4 pt-4 border-t border-[#EBE6D7]">
+              <span class="block text-xs font-bold font-mono text-[#2D4A53] uppercase tracking-wider">Meet Our Founding Instructors</span>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="space-y-2">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200" alt="Evelyn Vance Avatar" class="w-12 h-12 rounded-full object-cover border border-[#EBE6D7]" />
+                  <span class="block text-xs font-bold text-[#2D4A53]">Evelyn Vance</span>
+                  <span class="block text-[10px] text-[#C87941] font-medium leading-tight">Lead Watercolorist</span>
+                </div>
+                <div class="space-y-2">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200" alt="Marcus Brody Avatar" class="w-12 h-12 rounded-full object-cover border border-[#EBE6D7]" />
+                  <span class="block text-xs font-bold text-[#2D4A53]">Marcus Brody</span>
+                  <span class="block text-[10px] text-[#C87941] font-medium leading-tight">Acrylics Mentor</span>
+                </div>
+                <div class="space-y-2">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" alt="Sarah Kim Avatar" class="w-12 h-12 rounded-full object-cover border border-[#EBE6D7]" />
+                  <span class="block text-xs font-bold text-[#2D4A53]">Sarah Kim</span>
+                  <span class="block text-[10px] text-[#C87941] font-medium leading-tight">Illustrator & Planner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scene Image Right (Grid Span 6) -->
+          <div class="lg:col-span-6">
+            <div class="relative bg-white p-3.5 rounded-2xl border border-[#EBE6D7] shadow-md">
+              <img src="/src/assets/images/art_class_scene_1782863103858.jpg" alt="Watercolors class in progress at conservatory greenhouse" class="w-full h-[400px] object-cover rounded-xl" referrerPolicy="no-referrer" />
+              <div class="absolute top-6 right-6 bg-[#2D4A53] text-white text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                Greenhouse Session '26
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER SUBSCRIPTION FORM (EXCLUSIVE DISCOUNT) -->
+      <section class="py-16 bg-white border-b border-[#EBE6D7]">
+        <div class="max-w-[800px] mx-auto px-4 bg-[#FAF4EE] rounded-2xl border border-[#E6CBB1] p-8 md:p-12 space-y-6 text-center relative overflow-hidden">
+          <div class="absolute -top-12 -left-12 w-24 h-24 bg-[#E6CBB1]/20 rounded-full blur-xl pointer-events-none"></div>
+          <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-[#D7AB86]/20 rounded-full blur-xl pointer-events-none"></div>
+
+          <div class="space-y-2 relative">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#C87941] font-semibold">Newsletter Exclusive</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#2D4A53]">Unlock 15% Off Your Next Workshop</h2>
+            <p class="text-xs text-[#334155]/85 max-w-md mx-auto">
+              Subscribe to the Blue Fox mailing list. Receive upcoming popup schedules, first dibs on seat bookings, and an immediate 15% discount coupon.
+            </p>
+          </div>
+
+          <!-- Form Area -->
+          <form id="newsletter-subscription-form" class="max-w-md mx-auto space-y-4 pt-2 relative">
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input type="email" id="newsletter-email" placeholder="Your primary email address" required class="flex-grow px-4 py-2.5 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53] placeholder:text-slate-400" />
+              <button type="submit" class="px-6 py-2.5 rounded-md bg-[#2D4A53] text-white hover:bg-[#22383F] font-medium text-xs transition-colors whitespace-nowrap">
+                Subscribe Now
+              </button>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 text-[10px] font-mono text-[#334155]/80">
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" checked class="rounded accent-[#2D4A53]" />
+                <span>Watercolors list</span>
+              </label>
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" checked class="rounded accent-[#2D4A53]" />
+                <span>Acrylic updates</span>
+              </label>
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" checked class="rounded accent-[#2D4A53]" />
+                <span>Sketching alerts</span>
+              </label>
+            </div>
+          </form>
+
+          <!-- Success Alert Container (Initially hidden) -->
+          <div id="newsletter-success" class="hidden max-w-md mx-auto bg-white p-5 rounded-xl border border-[#E6CBB1] shadow-md space-y-3 relative transition-all duration-300">
+            <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+              ✓
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-[#2D4A53]">Welcome to the Inner Circle!</span>
+              <span class="block text-[10px] text-[#94A3B8] mt-0.5">Your email has been successfully registered.</span>
+            </div>
+            <div class="bg-[#FAF4EE] border border-dashed border-[#C87941] p-3 rounded-md">
+              <span class="block text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Your 15% Off Discount Code</span>
+              <strong class="block text-base font-mono text-[#C87941] mt-1 tracking-wider">WELCOMEOX15</strong>
+              <span class="block text-[9px] text-slate-400 mt-0.5">Apply code during registration to claim your savings.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT, DIRECTIONS & FAQS -->
+      <section id="contact" class="py-16 bg-[#FDFCF9]">
+        <div class="max-w-[1200px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Left Columns (Grid Span 5) -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs font-mono uppercase tracking-wider text-[#C87941]">Get in Touch</span>
+            <h2 class="font-serif text-3xl font-bold text-[#2D4A53]">Contact Us & FAQ</h2>
+            <div class="w-12 h-0.5 bg-[#C87941]"></div>
+            <p class="text-xs text-[#334155]/90 leading-relaxed">
+              Have questions about booking private birthday workshops, corporate paint-and-sip popups, or special accessibility accommodations? Drop our team a line directly!
+            </p>
+
+            <!-- FAQ Collapse Set -->
+            <div class="space-y-3.5 pt-4 border-t border-[#EBE6D7]">
+              <!-- Accordion 1 -->
+              <details class="group bg-white rounded-lg border border-[#EBE6D7] p-3.5 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                  <span class="text-xs font-bold text-[#2D4A53]">Are all painting materials supplied?</span>
+                  <span class="text-xs font-mono text-[#94A3B8] transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-[11px] text-[#334155]/85 mt-2.5 leading-relaxed pl-1">
+                  Yes, absolutely! We supply high-grade acrylics, watercolors, pre-stretched cotton canvases, brushes, mixing trays, sketch liners, and a custom protective apron. Simply bring your eager spirit!
+                </p>
+              </details>
+
+              <!-- Accordion 2 -->
+              <details class="group bg-white rounded-lg border border-[#EBE6D7] p-3.5 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                  <span class="text-xs font-bold text-[#2D4A53]">What is your booking cancellation policy?</span>
+                  <span class="text-xs font-mono text-[#94A3B8] transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-[11px] text-[#334155]/85 mt-2.5 leading-relaxed pl-1">
+                  You can self-cancel your registration directly from the "My Bookings" drawer up to 48 hours prior to the session start. This automatically triggers a full ticket credit refund and opens up seats for others on our waiting list.
+                </p>
+              </details>
+
+              <!-- Accordion 3 -->
+              <details class="group bg-white rounded-lg border border-[#EBE6D7] p-3.5 [&_summary::-webkit-details-marker]:hidden">
+                <summary class="flex items-center justify-between cursor-pointer focus:outline-none">
+                  <span class="text-xs font-bold text-[#2D4A53]">Can I register on-site at the venue?</span>
+                  <span class="text-xs font-mono text-[#94A3B8] transition-transform group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-[11px] text-[#334155]/85 mt-2.5 leading-relaxed pl-1">
+                  Due to strictly limited seating quotas designed to optimize individual mentor attention, we cannot offer walk-in tickets. All class bookings must be reserved and finalized on our online portal.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <!-- Right Form Block (Grid Span 7) -->
+          <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-xl border border-[#EBE6D7] shadow-sm space-y-6">
+            <h3 class="font-serif text-xl font-bold text-[#2D4A53]">Send Us a Direct Message</h3>
+            
+            <form id="contact-message-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label for="contact-name" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Full Name</label>
+                  <input type="text" id="contact-name" placeholder="E.g. Clara Thompson" required class="w-full px-3.5 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53]" />
+                </div>
+                <div class="space-y-1.5">
+                  <label for="contact-email" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Email Address</label>
+                  <input type="email" id="contact-email" placeholder="clara@example.com" required class="w-full px-3.5 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53]" />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="contact-subject" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Inquiry Subject</label>
+                <select id="contact-subject" class="w-full px-3.5 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53]">
+                  <option value="General Question">General Question / Accessibility Support</option>
+                  <option value="Private Booking">Private Birthdays / Corporate paint-sip</option>
+                  <option value="Venue Proposal">Venue Partner / Café Collaboration</option>
+                  <option value="Artist Application">Guest Instructor Opportunities</option>
+                </select>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="contact-message" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Message Text</label>
+                <textarea id="contact-message" rows="4" placeholder="Describe your inquiry in detail..." required class="w-full px-3.5 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] focus:border-[#2D4A53] resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 rounded-md bg-[#2D4A53] text-white hover:bg-[#22383F] font-medium text-xs transition-colors text-center shadow">
+                Submit Message
+              </button>
+            </form>
+
+            <!-- Success message wrapper -->
+            <div id="contact-success" class="hidden bg-emerald-50 border border-emerald-200 text-[#2D4A53] p-4 rounded-lg text-xs space-y-2 text-center transition-all duration-300">
+              <span class="block font-bold">✓ Message Transmitted Successfully!</span>
+              <span class="block text-slate-500">Thank you for writing. Our core team replies within 12-24 hours.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#121F23] text-[#E9F1F2] border-t border-[#2D4A53]/55 py-12">
+      <div class="max-w-[1200px] mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand Segment -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="/src/assets/images/blue_fox_logo_1782863083223.jpg" alt="Mascot Logo" class="w-9 h-9 rounded-full object-cover border border-[#2D4A53]" referrerPolicy="no-referrer" />
+            <span class="font-serif text-lg font-bold text-white tracking-tight">Blue Fox Art</span>
+          </div>
+          <p class="text-xs text-[#E9F1F2]/70 leading-relaxed max-w-xs">
+            Traveling art workshop popping up in community greenhouses, vineyards, and libraries. Crafting joy through colors.
+          </p>
+          <span class="block text-[10px] font-mono text-[#C87941] uppercase tracking-wider">EST. 2024 IN CA</span>
+        </div>
+
+        <!-- Venue partners -->
+        <div class="space-y-3">
+          <span class="block text-xs font-bold font-mono text-white uppercase tracking-widest">Our Active Venues</span>
+          <ul class="space-y-2 text-xs text-[#E9F1F2]/80">
+            <li>🏡 Willow Cafe Greenhouse</li>
+            <li>🍇 Harvest Ridge Vineyards</li>
+            <li>☕ Urban Grind Coffee Roastery</li>
+            <li>🌸 The Bloom Garden Emporium</li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-3">
+          <span class="block text-xs font-bold font-mono text-white uppercase tracking-widest">Quick Navigation</span>
+          <ul class="space-y-2 text-xs text-[#E9F1F2]/80">
+            <li><a href="#home" class="hover:text-[#C87941] transition-colors">Return to Top</a></li>
+            <li><a href="#about" class="hover:text-[#C87941] transition-colors">About our Founders</a></li>
+            <li><a href="#schedule" class="hover:text-[#C87941] transition-colors">Class Registration</a></li>
+            <li><a href="#work" class="hover:text-[#C87941] transition-colors">Student Masterpieces</a></li>
+          </ul>
+        </div>
+
+        <!-- Trademark Info -->
+        <div class="space-y-3 text-xs text-[#E9F1F2]/75">
+          <span class="block font-bold font-mono text-white uppercase tracking-widest">Connect Offline</span>
+          <p class="leading-relaxed">
+            Blue Fox Art Co.<br />
+            Phone: (510) 555-0149<br />
+            Email: design@bluefoxart.com
+          </p>
+          <div class="flex gap-3 pt-1">
+            <span class="text-xs text-[#C87941]">Instagram</span>
+            <span class="text-xs text-[#C87941]">Facebook</span>
+            <span class="text-xs text-[#C87941]">Pinterest</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-4 mt-12 pt-6 border-t border-[#2D4A53]/50 text-center text-[10px] text-[#E9F1F2]/50 font-mono">
+        &copy; 2026 Blue Fox Art Studio. All rights reserved. Built as a fully responsive, static HTML5 & CSS3 website compatible with GitHub Pages.
+      </div>
+    </footer>
+
+
+    <!-- BOOKINGS DRAWER (POPUP SLIDE-OUT PANEL) -->
+    <div id="bookings-drawer" class="fixed inset-0 z-50 pointer-events-none" role="dialog" aria-modal="true">
+      <!-- Dark overlay -->
+      <div id="bookings-drawer-overlay" class="absolute inset-0 bg-[#121F23]/40 opacity-0 transition-opacity duration-300 pointer-events-auto cursor-pointer"></div>
+      
+      <!-- Panel -->
+      <div id="bookings-drawer-panel" class="absolute top-0 right-0 h-full w-full max-w-md bg-[#FDFCF9] border-l border-[#EBE6D7] shadow-2xl translate-x-full transition-transform duration-300 pointer-events-auto flex flex-col justify-between">
+        <!-- Head -->
+        <div class="p-4 border-b border-[#EBE6D7] flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="text-[#2D4A53]"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+            <span class="font-serif text-lg font-bold text-[#2D4A53]">My Reserved Tickets</span>
+          </div>
+          <button id="bookings-drawer-close" class="p-1 rounded hover:bg-[#E9F1F2]" aria-label="Close Bookings Drawer">
+            ✕
+          </button>
+        </div>
+
+        <!-- Body Scroll -->
+        <div class="p-4 flex-grow overflow-y-auto space-y-4">
+          <!-- State empty -->
+          <div id="bookings-empty-state" class="text-center py-12 space-y-3">
+            <div class="text-4xl">🎫</div>
+            <p class="text-xs font-bold text-[#2D4A53]">No bookings registered yet</p>
+            <p class="text-[11px] text-[#94A3B8] max-w-xs mx-auto">
+              You haven't purchased or reserved any class seats. Select an active class on our calendar schedule to enroll!
+            </p>
+          </div>
+
+          <!-- Booked list -->
+          <div id="bookings-list" class="space-y-4">
+            <!-- Programmatic tickets go here -->
+          </div>
+        </div>
+
+        <!-- Foot -->
+        <div class="p-4 border-t border-[#EBE6D7] bg-white flex items-center justify-between text-xs font-mono">
+          <span class="text-[#94A3B8]">Total Active Seats:</span>
+          <strong id="bookings-total-seats" class="text-[#2D4A53]">0 Seats</strong>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- REGISTRATION MODAL PANEL -->
+    <div id="registration-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none" role="dialog" aria-modal="true">
+      <!-- Dark overlay -->
+      <div id="registration-modal-overlay" class="absolute inset-0 bg-[#121F23]/50 opacity-0 transition-opacity duration-300 pointer-events-auto cursor-pointer"></div>
+
+      <!-- Main Modal Card -->
+      <div id="registration-modal-panel" class="relative bg-[#FDFCF9] w-full max-w-xl rounded-2xl border border-[#EBE6D7] shadow-2xl scale-90 opacity-0 transition-all duration-300 pointer-events-auto overflow-hidden flex flex-col max-h-[90vh]">
+        <!-- Header banner -->
+        <div class="bg-[#2D4A53] text-white p-5 flex items-start justify-between">
+          <div class="space-y-1">
+            <span class="text-[9px] uppercase font-mono tracking-widest text-[#E9F1F2]">Secure Class Registration</span>
+            <h3 id="reg-class-title" class="font-serif text-lg font-bold leading-tight">Dreamy Forest Paths in Watercolor</h3>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-[#E9F1F2]/80 font-mono mt-1">
+              <span id="reg-class-date">📅 Saturday, July 11</span>
+              <span id="reg-class-time">🕒 1:00 PM</span>
+              <span id="reg-class-location">📍 Willow Cafe</span>
+            </div>
+          </div>
+          <button id="registration-modal-close" class="text-[#E9F1F2] hover:text-white font-mono text-base p-1">
+            ✕
+          </button>
+        </div>
+
+        <!-- Main Scrolling Form Body -->
+        <div class="p-6 overflow-y-auto space-y-4 flex-grow">
+          <div class="bg-amber-50 border border-[#FAF4EE] p-3 rounded-lg text-xs text-[#2D4A53] leading-relaxed flex items-start gap-2.5">
+            <span class="text-base mt-0.5">ℹ️</span>
+            <div>
+              <strong>Instructor: <span id="reg-class-instructor">Evelyn Vance</span></strong>
+              <p class="text-[10px] text-slate-500 mt-0.5" id="reg-class-location-details">
+                104 Pine Street — A beautiful climate-controlled conservatory filled with hanging plants.
+              </p>
+            </div>
+          </div>
+
+          <!-- Steps/Fields -->
+          <form id="registration-form" class="space-y-4">
+            <!-- Student particulars -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1">
+                <label for="reg-name" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Full Name</label>
+                <input type="text" id="reg-name" placeholder="E.g. Clara Thompson" required class="w-full px-3 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53]" />
+              </div>
+              <div class="space-y-1">
+                <label for="reg-email" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Email Address</label>
+                <input type="email" id="reg-email" placeholder="clara@example.com" required class="w-full px-3 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53]" />
+              </div>
+            </div>
+
+            <!-- Ticket customizer -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-2 border-t border-b border-[#EBE6D7]/60">
+              <!-- Seats -->
+              <div class="space-y-1.5">
+                <label for="reg-seats" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8] flex items-center justify-between">
+                  <span>Number of Seats</span>
+                  <span id="reg-seats-available" class="text-[9px] text-[#C87941] font-bold">5 Seats left</span>
+                </label>
+                <select id="reg-seats" class="w-full px-3 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53]">
+                  <option value="1">1 Seat</option>
+                  <option value="2">2 Seats</option>
+                  <option value="3">3 Seats</option>
+                  <option value="4">4 Seats</option>
+                </select>
+              </div>
+
+              <!-- Promo discount code -->
+              <div class="space-y-1.5">
+                <label for="reg-coupon" class="text-[10px] uppercase font-mono tracking-wider text-[#94A3B8]">Discount Coupon Code</label>
+                <div class="flex gap-1">
+                  <input type="text" id="reg-coupon" placeholder="E.g. WELCOMEOX15" class="w-full px-3 py-2 text-xs rounded-md border border-[#EBE6D7] bg-white text-[#2D4A53] uppercase placeholder:normal-case" />
+                  <button type="button" id="apply-coupon-btn" class="px-3 bg-[#E9F1F2] hover:bg-[#D3E4E6] text-[#2D4A53] rounded-md text-[10px] font-mono font-bold tracking-wide uppercase">
+                    Apply
+                  </button>
+                </div>
+                <span id="coupon-feedback" class="block text-[9px] font-semibold"></span>
+              </div>
+            </div>
+
+            <!-- Price Breakdown Summary -->
+            <div class="bg-white p-3.5 rounded-lg border border-[#EBE6D7] space-y-2 text-xs font-mono text-[#334155]">
+              <div class="flex justify-between">
+                <span>Seat Ticket Price:</span>
+                <span id="summary-unit-price">$45.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Subtotal (<span id="summary-seats-count">1 Seat</span>):</span>
+                <span id="summary-subtotal">$45.00</span>
+              </div>
+              <div id="summary-discount-row" class="hidden text-emerald-600 flex justify-between">
+                <span>Coupon Savings (15%):</span>
+                <span id="summary-discount">-$6.75</span>
+              </div>
+              <div class="flex justify-between font-bold text-[#2D4A53] pt-2 border-t border-[#EBE6D7]/60 text-sm">
+                <span>Total Amount Due:</span>
+                <span id="summary-total">$45.00</span>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <button type="submit" class="w-full py-3 rounded-lg bg-[#C87941] hover:bg-[#B25F29] text-white font-medium text-xs transition-colors text-center shadow">
+              Confirm Reservation & Generate Ticket
+            </button>
+          </form>
+
+          <!-- Success Screen (Initially hidden) -->
+          <div id="reg-success-screen" class="hidden text-center space-y-5 py-6">
+            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-xl font-bold">
+              ✓
+            </div>
+            <div class="space-y-1">
+              <h4 class="font-serif text-lg font-bold text-[#2D4A53]">Registration Confirmed!</h4>
+              <p class="text-xs text-slate-400">Your seat has been securely reserved. Show this ticket code upon arrival.</p>
+            </div>
+
+            <!-- Digital Ticket Card -->
+            <div class="bg-white rounded-xl border-2 border-[#EBE6D7] overflow-hidden text-left relative shadow-md">
+              <div class="bg-[#2D4A53] p-3 text-white text-[9px] font-mono uppercase tracking-widest flex items-center justify-between">
+                <span>Blue Fox Class Entry Ticket</span>
+                <strong id="ticket-booking-code" class="text-amber-400">FOX-1011-W1</strong>
+              </div>
+              
+              <div class="p-4 space-y-3 text-xs">
+                <div>
+                  <span class="block text-[9px] uppercase font-mono text-[#94A3B8]">Class Title</span>
+                  <strong id="ticket-class-title" class="text-[#2D4A53]">Dreamy Forest Paths in Watercolor</strong>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <span class="block text-[9px] uppercase font-mono text-[#94A3B8]">Guest Name</span>
+                    <span id="ticket-guest-name" class="font-bold text-[#2D4A53]">Clara Thompson</span>
+                  </div>
+                  <div>
+                    <span class="block text-[9px] uppercase font-mono text-[#94A3B8]">Seats Booked</span>
+                    <span id="ticket-seats-count" class="font-bold text-[#2D4A53]">1 Seat</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 border-t border-[#EBE6D7]/60 pt-2.5">
+                  <div>
+                    <span class="block text-[9px] uppercase font-mono text-[#94A3B8]">Date & Time</span>
+                    <span id="ticket-datetime" class="font-bold text-[#2D4A53]">July 11, 2026 — 1:00 PM</span>
+                  </div>
+                  <div>
+                    <span class="block text-[9px] uppercase font-mono text-[#94A3B8]">Location</span>
+                    <span id="ticket-location" class="font-bold text-[#2D4A53]">Willow Cafe Greenhouse</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ticket rip-line aesthetics -->
+              <div class="absolute left-0 right-0 top-[31px] flex justify-between px-1 pointer-events-none">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FDFCF9] -ml-1.5 border-r border-[#EBE6D7]"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#FDFCF9] -mr-1.5 border-l border-[#EBE6D7]"></span>
+              </div>
+            </div>
+
+            <!-- Modal Bottom Button -->
+            <button id="success-done-btn" class="px-6 py-2 bg-[#2D4A53] hover:bg-[#22383F] text-white text-xs font-medium rounded-md transition-colors">
+              Done & View Ticket Drawer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN VITE MODULE SCRIPTS -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,7 +6,7 @@
   --font-serif: "Playfair Display", "Georgia", serif;
   --font-mono: "JetBrains Mono", monospace;
   
-  /* Artistic Flair Color Theme Mappings for Tailwind */
+  /* Color theme mappings from Artistic Flair Theme */
   --color-primary-50: #E9F1F2;
   --color-primary-100: #D3E4E6;
   --color-primary-200: #A8C9CD;
@@ -14,18 +14,6 @@
   --color-primary-600: #2D4A53;
   --color-primary-700: #22383F;
   --color-primary-950: #121F23;
-
-  --color-blue-50: #E9F1F2;
-  --color-blue-100: #D3E4E6;
-  --color-blue-200: #A8C9CD;
-  --color-blue-300: #7DAEB4;
-  --color-blue-400: #548E98;
-  --color-blue-500: #3D6A75;
-  --color-blue-600: #2D4A53;
-  --color-blue-700: #22383F;
-  --color-blue-800: #18282D;
-  --color-blue-900: #111D20;
-  --color-blue-950: #080E10;
 
   --color-amber-50: #FAF4EE;
   --color-amber-100: #F3E5D8;
@@ -53,18 +41,18 @@
 }
 
 :root {
-  /* Artistic Flair Color Palette stored as CSS variables */
+  /* Dynamic CSS Custom Variables matching standard requirements */
   --primary: #2D4A53;      /* Deep Slate/Teal */
   --secondary: #E9F1F2;    /* Soft Ice/Teal */
   --accent: #C87941;       /* Terracotta Accent */
   --background: #FDFCF9;   /* Warm Paper White */
   --surface: #FFFFFF;      /* Pure White Surface */
-  --text: #334155;         /* Elegant Slate Blue/Charcoal Text */
-  --text-muted: #94A3B8;   /* Cool muted Slate Gray */
+  --text: #334155;         /* Charcoal/Slate Text */
+  --text-muted: #94A3B8;   /* Muted Slate Gray */
   --border: #EBE6D7;       /* Soft Sandstone Border */
 }
 
-/* Custom Scroll Behavior */
+/* Custom layout rules & helpers for pristine CSS3 styling */
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
@@ -76,7 +64,7 @@ body {
   background-color: var(--background);
 }
 
-/* Smooth custom scrollbars for neat look */
+/* Smooth custom scrollbar for consistent browser appearance */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -96,17 +84,54 @@ body {
   color: #C87941;
 }
 
-/* Clean accessible focus styling */
+/* Clean focus accessibility outline */
 input:focus, select:focus, textarea:focus {
-  outline: 2px solid #2D4A53;
-  outline-offset: 2px;
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
 }
 
-/* Extra Artistic Flair decorations */
-.artistic-border {
-  border-color: #EBE6D7;
+/* Custom interactive animation classes */
+.drawer-active {
+  pointer-events: auto !important;
 }
 
-.artistic-shadow {
-  box-shadow: 0 4px 20px -2px rgba(45, 74, 83, 0.08);
+.drawer-active #bookings-drawer-overlay {
+  opacity: 1 !important;
+}
+
+.drawer-active #bookings-drawer-panel {
+  transform: translateX(0) !important;
+}
+
+.modal-active {
+  pointer-events: auto !important;
+}
+
+.modal-active #registration-modal-overlay {
+  opacity: 1 !important;
+}
+
+.modal-active #registration-modal-panel {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+}
+
+/* Heart pop animation on like */
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.3); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.3); }
+  70% { transform: scale(1); }
+}
+
+.liked .heart-icon {
+  fill: #ef4444;
+  stroke: #ef4444;
+  animation: heartBeat 0.8s ease-in-out;
+}
+
+.liked .like-count {
+  color: #ef4444;
+  font-weight: bold;
 }
