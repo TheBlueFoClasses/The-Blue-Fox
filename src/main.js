@@ -1,3 +1,5 @@
+import { INSTRUCTORS, ART_CLASSES } from './data.js';
+
 // --- BOOKING STATE & PERSISTENCE ---
 let localBookings = [];
 

@@ -4,161 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blue Fox Art Studio — Creative Classes on the Move</title>
-    
-    <!-- Tailwind CSS Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Helvetica Neue", "Arial", "Nimbus Sans L", "sans-serif"],
-              serif: ["Playfair Display", "Georgia", "serif"],
-              mono: ["JetBrains Mono", "monospace"],
-            },
-            colors: {
-              primary: {
-                50: "#E9F1F2",
-                100: "#D3E4E6",
-                200: "#A8C9CD",
-                500: "#3E6672",
-                600: "#2D4A53",
-                700: "#22383F",
-                950: "#121F23",
-              },
-              amber: {
-                50: "#FAF4EE",
-                100: "#F3E5D8",
-                200: "#E6CBB1",
-                300: "#D7AB86",
-                400: "#C98A5B",
-                500: "#C87941",
-                600: "#B25F29",
-                700: "#93461B",
-                800: "#743110",
-                900: "#592209",
-                950: "#331002",
-              },
-              slate: {
-                50: "#FDFCF9",
-                100: "#F5F3EC",
-                200: "#EBE6D7",
-                300: "#DCD4BF",
-                400: "#CBBFA3",
-                500: "#AFA182",
-                600: "#918263",
-                700: "#74674C",
-                800: "#574D38",
-                900: "#3B3425",
-                950: "#1D1A12",
-              }
-            }
-          }
-        }
-      }
-    </script>
-
-    <!-- Custom CSS3 Styles & Google Fonts -->
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-      :root {
-        /* Dynamic CSS Custom Variables matching standard requirements */
-        --primary: #2D4A53;      /* Deep Slate/Teal */
-        --secondary: #E9F1F2;    /* Soft Ice/Teal */
-        --accent: #C87941;       /* Terracotta Accent */
-        --background: #FDFCF9;   /* Warm Paper White */
-        --surface: #FFFFFF;      /* Pure White Surface */
-        --text: #334155;         /* Charcoal/Slate Text */
-        --text-muted: #94A3B8;   /* Muted Slate Gray */
-        --border: #EBE6D7;       /* Soft Sandstone Border */
-        --font-sans: "Helvetica Neue", "Arial", "Nimbus Sans L", sans-serif;
-      }
-
-      /* Custom layout rules & helpers for pristine CSS3 styling */
-      html {
-        scroll-behavior: smooth;
-        font-family: var(--font-sans);
-        background-color: var(--background);
-        color: var(--text);
-      }
-
-      body {
-        background-color: var(--background);
-      }
-
-      /* Smooth custom scrollbar for consistent browser appearance */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #F5F3EC;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #CBBFA3;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #918263;
-      }
-
-      /* Star styling helper */
-      .star-filled {
-        color: #C87941;
-      }
-
-      /* Clean focus accessibility outline */
-      input:focus, select:focus, textarea:focus {
-        outline: 2px solid var(--primary);
-        outline-offset: 1px;
-      }
-
-      /* Custom interactive animation classes */
-      .drawer-active {
-        pointer-events: auto !important;
-      }
-
-      .drawer-active #bookings-drawer-overlay {
-        opacity: 1 !important;
-      }
-
-      .drawer-active #bookings-drawer-panel {
-        transform: translateX(0) !important;
-      }
-
-      .modal-active {
-        pointer-events: auto !important;
-      }
-
-      .modal-active #registration-modal-overlay {
-        opacity: 1 !important;
-      }
-
-      .modal-active #registration-modal-panel {
-        transform: scale(1) !important;
-        opacity: 1 !important;
-      }
-
-      /* Heart pop animation on like */
-      @keyframes heartBeat {
-        0% { transform: scale(1); }
-        14% { transform: scale(1.3); }
-        28% { transform: scale(1); }
-        42% { transform: scale(1.3); }
-        70% { transform: scale(1); }
-      }
-
-      .liked .heart-icon {
-        fill: #ef4444;
-        stroke: #ef4444;
-        animation: heartBeat 0.8s ease-in-out;
-      }
-
-      .liked .like-count {
-        color: #ef4444;
-        font-weight: bold;
-      }
-    </style>
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body class="bg-[#FDFCF9] text-[#334155] antialiased">
     
@@ -264,26 +110,18 @@
             </div>
           </div>
 
-          <!-- Hero Image Frame (Column Span 5) -->
+          <!-- Hero Video Frame (Column Span 5) -->
           <div class="lg:col-span-5 relative z-10">
             <div class="absolute -inset-1.5 bg-[#C87941] rounded-2xl rotate-2 opacity-10 pointer-events-none"></div>
             <div class="absolute inset-0 bg-[#2D4A53] rounded-2xl -rotate-1 opacity-5 pointer-events-none"></div>
-            <div class="relative bg-white p-4 rounded-2xl shadow-xl border border-[#EBE6D7] z-10">
-              <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; overflow: hidden; border-radius: 12px; will-change: transform;">
-                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
-                  src="https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?embed" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; clipboard-write; web-share">
+            <div class="relative bg-white p-4 sm:p-5 rounded-2xl shadow-xl border border-[#EBE6D7] z-10">
+              <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                  src="https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
               </div>
-              <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
-                <div class="flex items-center gap-1.5">
-                  <span class="text-xs font-mono text-[#2D4A53] font-bold">🎬 Interactive Preview</span>
-                  <a href="https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?utm_content=DAHPN2A1Vxg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[11px] bg-[#C87941]/10 text-[#C87941] px-2 py-0.5 rounded-full hover:bg-[#C87941]/20 transition-all font-mono font-semibold">
-                    Open Video ↗
-                  </a>
-                </div>
-                <span class="text-xs font-mono text-slate-400">
-                  <a href="https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?utm_content=DAHPN2A1Vxg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" class="text-[#C87941] hover:underline font-semibold">Design</a> by Aryn Lill
-                </span>
+              <div class="text-xs font-mono text-center mt-2">
+                <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHPN2A1Vxg&#x2F;K1Chd3onc_d8Uwd0Bxlg7g&#x2F;watch?utm_content=DAHPN2A1Vxg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener" class="text-[#C87941] hover:underline font-semibold">Design</a> by Aryn Lill
               </div>
             </div>
           </div>
@@ -1147,8 +985,7 @@
       </div>
     </div>
 
-    <!-- STATIC SCRIPTS -->
-    <script src="src/data.js"></script>
-    <script src="src/main.js"></script>
+    <!-- MAIN APPLICATION ENTRY POINT -->
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

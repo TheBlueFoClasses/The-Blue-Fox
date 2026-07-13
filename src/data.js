@@ -123,3 +123,5 @@ const ART_CLASSES = [
     image: 'src/assets/images/pencil_sketch_1782863132031.jpg'
   }
 ];
+
+export { INSTRUCTORS, ART_CLASSES };
