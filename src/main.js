@@ -1,24 +1,5 @@
-import './index.css';
-import { ART_CLASSES, ArtClass, INSTRUCTORS } from './data';
-
 // --- BOOKING STATE & PERSISTENCE ---
-interface Booking {
-  id: string;
-  classId: string;
-  classTitle: string;
-  guestName: string;
-  guestEmail: string;
-  seats: number;
-  unitPrice: number;
-  discount: number;
-  totalPaid: number;
-  bookingCode: string;
-  date: string;
-  time: string;
-  location: string;
-}
-
-let localBookings: Booking[] = [];
+let localBookings = [];
 
 // Load from localStorage
 function loadBookings() {
@@ -40,7 +21,7 @@ function saveBookings() {
 }
 
 // Get dynamic filled seats count (base filled seats + local bookings)
-function getFilledSeats(artClass: ArtClass): number {
+function getFilledSeats(artClass) {
   const localReserved = localBookings
     .filter(b => b.classId === artClass.id)
     .reduce((sum, b) => sum + b.seats, 0);
@@ -51,7 +32,7 @@ function getFilledSeats(artClass: ArtClass): number {
 // --- ACTIVE FILTERS STATE ---
 let selectedMedium = 'All';
 let selectedLocation = 'All';
-let selectedDay: number | null = null; // 1 to 31
+let selectedDay = null; // 1 to 31
 
 
 // --- ELEMENT REFERENCING ---
@@ -61,8 +42,8 @@ const activeDayBanner = document.getElementById('active-day-banner');
 const activeDayValue = document.getElementById('active-day-value');
 const clearDayFilter = document.getElementById('clear-day-filter');
 
-const filterMedium = document.getElementById('filter-medium') as HTMLSelectElement;
-const filterLocation = document.getElementById('filter-location') as HTMLSelectElement;
+const filterMedium = document.getElementById('filter-medium');
+const filterLocation = document.getElementById('filter-location');
 const filterReset = document.getElementById('filter-reset');
 
 // Drawer elements
@@ -79,7 +60,7 @@ const bookingsTotalSeats = document.getElementById('bookings-total-seats');
 const registrationModal = document.getElementById('registration-modal');
 const registrationModalClose = document.getElementById('registration-modal-close');
 const registrationModalOverlay = document.getElementById('registration-modal-overlay');
-const registrationForm = document.getElementById('registration-form') as HTMLFormElement;
+const registrationForm = document.getElementById('registration-form');
 const regSuccessScreen = document.getElementById('reg-success-screen');
 
 // Modal fields
@@ -91,10 +72,10 @@ const regClassInstructor = document.getElementById('reg-class-instructor');
 const regClassLocationDetails = document.getElementById('reg-class-location-details');
 const regSeatsAvailable = document.getElementById('reg-seats-available');
 
-const regName = document.getElementById('reg-name') as HTMLInputElement;
-const regEmail = document.getElementById('reg-email') as HTMLInputElement;
-const regSeats = document.getElementById('reg-seats') as HTMLSelectElement;
-const regCoupon = document.getElementById('reg-coupon') as HTMLInputElement;
+const regName = document.getElementById('reg-name');
+const regEmail = document.getElementById('reg-email');
+const regSeats = document.getElementById('reg-seats');
+const regCoupon = document.getElementById('reg-coupon');
 const applyCouponBtn = document.getElementById('apply-coupon-btn');
 const couponFeedback = document.getElementById('coupon-feedback');
 
@@ -116,9 +97,9 @@ const ticketLocation = document.getElementById('ticket-location');
 const successDoneBtn = document.getElementById('success-done-btn');
 
 // Newsletter & Contact Form elements
-const newsletterForm = document.getElementById('newsletter-subscription-form') as HTMLFormElement;
+const newsletterForm = document.getElementById('newsletter-subscription-form');
 const newsletterSuccess = document.getElementById('newsletter-success');
-const contactForm = document.getElementById('contact-message-form') as HTMLFormElement;
+const contactForm = document.getElementById('contact-message-form');
 const contactSuccess = document.getElementById('contact-success');
 
 // Mobile Navigation
@@ -127,7 +108,7 @@ const mobileDropdown = document.getElementById('mobile-dropdown');
 
 
 // --- GLOBAL DATA DRIVEN HELPER ---
-let activeRegistrationClass: ArtClass | null = null;
+let activeRegistrationClass = null;
 let couponApplied = false;
 const DISCOUNT_PERCENT = 0.15; // 15% off coupon
 
@@ -269,7 +250,7 @@ function renderClassFeed() {
 
     // Format readable date
     const dateObj = new Date(artClass.date + 'T00:00:00');
-    const options: Intl.DateTimeFormatOptions = { weekday: 'short', month: 'short', day: 'numeric' };
+    const options = { weekday: 'short', month: 'short', day: 'numeric' };
     const readableDate = dateObj.toLocaleDateString('en-US', options);
 
     // Build seats indicator badge styling
@@ -410,7 +391,7 @@ function updateBookingsUI() {
 
 
 // --- BOOKING OPERATIONS ---
-function cancelReservation(bookingId: string, title: string) {
+function cancelReservation(bookingId, title) {
   const confirmCancel = confirm(`Are you sure you want to cancel your seat registration for "${title}"?\n\nThis will immediately release your reserved seats back to the schedule and process a standard digital ticket credit refund.`);
   if (!confirmCancel) return;
 
@@ -420,7 +401,7 @@ function cancelReservation(bookingId: string, title: string) {
   renderCalendar();
 }
 
-function openRegistrationModal(artClass: ArtClass) {
+function openRegistrationModal(artClass) {
   activeRegistrationClass = artClass;
   couponApplied = false;
   if (regCoupon) regCoupon.value = '';
@@ -542,7 +523,7 @@ function setupEventListeners() {
   // Dropdown filter changes
   if (filterMedium) {
     filterMedium.addEventListener('change', (e) => {
-      selectedMedium = (e.target as HTMLSelectElement).value;
+      selectedMedium = e.target.value;
       renderClassFeed();
       renderCalendar();
     });
@@ -550,7 +531,7 @@ function setupEventListeners() {
 
   if (filterLocation) {
     filterLocation.addEventListener('change', (e) => {
-      selectedLocation = (e.target as HTMLSelectElement).value;
+      selectedLocation = e.target.value;
       renderClassFeed();
       renderCalendar();
     });
@@ -617,7 +598,7 @@ function setupEventListeners() {
       const uniqueCode = `FOX-${codeNum}-${uniqueLetter}${seatsCount}`;
 
       // Assemble Booking Object
-      const newBooking: Booking = {
+      const newBooking = {
         id: Math.random().toString(36).substr(2, 9),
         classId: activeRegistrationClass.id,
         classTitle: activeRegistrationClass.title,
@@ -672,7 +653,7 @@ function setupEventListeners() {
   const programShortcuts = document.querySelectorAll('.program-shortcut');
   programShortcuts.forEach(lnk => {
     lnk.addEventListener('click', (e) => {
-      const filterValue = (e.currentTarget as HTMLElement).dataset.mediumFilter;
+      const filterValue = e.currentTarget.dataset.mediumFilter;
       if (filterValue && filterMedium) {
         selectedMedium = filterValue;
         filterMedium.value = filterValue;
@@ -686,8 +667,8 @@ function setupEventListeners() {
   const likeButtons = document.querySelectorAll('.like-button');
   likeButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const currentBtn = e.currentTarget as HTMLButtonElement;
-      const countSpan = currentBtn.querySelector('.like-count') as HTMLSpanElement;
+      const currentBtn = e.currentTarget;
+      const countSpan = currentBtn.querySelector('.like-count');
       let currentCount = parseInt(countSpan.innerText) || 0;
 
       if (currentBtn.classList.contains('liked')) {

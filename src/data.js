@@ -1,30 +1,4 @@
-export interface Instructor {
-  id: string;
-  name: string;
-  role: string;
-  bio: string;
-  specialty: string;
-  avatar: string;
-}
-
-export interface ArtClass {
-  id: string;
-  title: string;
-  description: string;
-  medium: 'Watercolor' | 'Acrylic' | 'Sketching';
-  date: string; // YYYY-MM-DD
-  time: string;
-  duration: string;
-  instructor: string;
-  location: string;
-  locationDetails: string;
-  price: number;
-  maxSeats: number;
-  filledSeats: number;
-  image: string;
-}
-
-export const INSTRUCTORS: Instructor[] = [
+const INSTRUCTORS = [
   {
     id: 'evelyn',
     name: 'Evelyn Vance',
@@ -51,7 +25,7 @@ export const INSTRUCTORS: Instructor[] = [
   }
 ];
 
-export const ART_CLASSES: ArtClass[] = [
+const ART_CLASSES = [
   {
     id: 'class-1',
     title: 'Dreamy Forest Paths in Watercolor',
@@ -66,7 +40,7 @@ export const ART_CLASSES: ArtClass[] = [
     price: 45,
     maxSeats: 12,
     filledSeats: 7,
-    image: '/src/assets/images/watercolor_forest_1782863115766.jpg'
+    image: 'src/assets/images/watercolor_forest_1782863115766.jpg'
   },
   {
     id: 'class-2',
@@ -82,7 +56,7 @@ export const ART_CLASSES: ArtClass[] = [
     price: 50,
     maxSeats: 15,
     filledSeats: 11,
-    image: '/src/assets/images/acrylic_sunset_1782863123550.jpg'
+    image: 'src/assets/images/acrylic_sunset_1782863123550.jpg'
   },
   {
     id: 'class-3',
@@ -98,7 +72,7 @@ export const ART_CLASSES: ArtClass[] = [
     price: 40,
     maxSeats: 10,
     filledSeats: 6,
-    image: '/src/assets/images/pencil_sketch_1782863132031.jpg'
+    image: 'src/assets/images/pencil_sketch_1782863132031.jpg'
   },
   {
     id: 'class-4',
@@ -113,8 +87,8 @@ export const ART_CLASSES: ArtClass[] = [
     locationDetails: '215 Gardenia Drive — Set inside the beautiful brick courtyard under twinkling fairy lights. Surrounded by fragrant seasonal blooms.',
     price: 45,
     maxSeats: 12,
-    filledSeats: 12, // Sold out
-    image: '/src/assets/images/watercolor_forest_1782863115766.jpg'
+    filledSeats: 12,
+    image: 'src/assets/images/watercolor_forest_1782863115766.jpg'
   },
   {
     id: 'class-5',
@@ -130,7 +104,7 @@ export const ART_CLASSES: ArtClass[] = [
     price: 50,
     maxSeats: 15,
     filledSeats: 8,
-    image: '/src/assets/images/acrylic_sunset_1782863123550.jpg'
+    image: 'src/assets/images/acrylic_sunset_1782863123550.jpg'
   },
   {
     id: 'class-6',
@@ -146,6 +120,6 @@ export const ART_CLASSES: ArtClass[] = [
     price: 40,
     maxSeats: 10,
     filledSeats: 3,
-    image: '/src/assets/images/pencil_sketch_1782863132031.jpg'
+    image: 'src/assets/images/pencil_sketch_1782863132031.jpg'
   }
 ];
