@@ -651,6 +651,49 @@ function setupEventListeners() {
     });
   }
 
+  // Canva Embed Mode Toggle
+  const btnModeView = document.getElementById('btn-mode-view');
+  const btnModeWatch = document.getElementById('btn-mode-watch');
+  const canvaIframe = document.getElementById('canva-iframe');
+  const canvaDesignLink = document.getElementById('canva-design-link');
+  const canvaDirectLink = document.getElementById('canva-direct-link');
+
+  if (btnModeView && btnModeWatch && canvaIframe) {
+    btnModeView.addEventListener('click', () => {
+      // Switch iframe to view mode
+      canvaIframe.src = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/view?embed';
+      
+      // Update footer links
+      if (canvaDesignLink) {
+        canvaDesignLink.href = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/view?utm_content=DAHPN2A1Vxg&utm_campaign=designshare&utm_medium=embeds&utm_source=link';
+      }
+      if (canvaDirectLink) {
+        canvaDirectLink.href = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/view?utm_content=DAHPN2A1Vxg';
+      }
+
+      // Toggle button styles
+      btnModeView.className = 'flex-1 py-1 px-2.5 text-[11px] font-mono font-bold rounded bg-[#2D4A53] text-white shadow-sm transition-all';
+      btnModeWatch.className = 'flex-1 py-1 px-2.5 text-[11px] font-mono font-medium rounded text-slate-500 hover:text-[#2D4A53] transition-all';
+    });
+
+    btnModeWatch.addEventListener('click', () => {
+      // Switch iframe to watch mode
+      canvaIframe.src = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?embed';
+      
+      // Update footer links
+      if (canvaDesignLink) {
+        canvaDesignLink.href = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?utm_content=DAHPN2A1Vxg&utm_campaign=designshare&utm_medium=embeds&utm_source=link';
+      }
+      if (canvaDirectLink) {
+        canvaDirectLink.href = 'https://www.canva.com/design/DAHPN2A1Vxg/K1Chd3onc_d8Uwd0Bxlg7g/watch?utm_content=DAHPN2A1Vxg';
+      }
+
+      // Toggle button styles
+      btnModeWatch.className = 'flex-1 py-1 px-2.5 text-[11px] font-mono font-bold rounded bg-[#2D4A53] text-white shadow-sm transition-all';
+      btnModeView.className = 'flex-1 py-1 px-2.5 text-[11px] font-mono font-medium rounded text-slate-500 hover:text-[#2D4A53] transition-all';
+    });
+  }
+
   // Program Shortcuts triggers
   const programShortcuts = document.querySelectorAll('.program-shortcut');
   programShortcuts.forEach(lnk => {
